@@ -7,12 +7,10 @@ import com.project.swing.domain.model.UnsplashPhotoModel
 import com.project.swing.domain.usecase.GetLikePhotosUseCase
 import com.project.swing.domain.usecase.UnlikePhotoUseCase
 import dagger.hilt.android.lifecycle.HiltViewModel
-import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.flow.catch
 import kotlinx.coroutines.launch
-import kotlinx.coroutines.withContext
 import javax.inject.Inject
 
 @HiltViewModel
@@ -36,7 +34,11 @@ class BookmarkViewModel @Inject constructor(
                 it.catch { remoteError ->
                     _getLikePhotosUiState.value = GetLikePhotosUiState.Error(remoteError)
                 }.collect { result ->
-                    _getLikePhotosUiState.value = GetLikePhotosUiState.Success(result)
+                    if (result.isEmpty()) {
+                        _getLikePhotosUiState.value = GetLikePhotosUiState.ResultEmpty
+                    } else {
+                        _getLikePhotosUiState.value = GetLikePhotosUiState.Success(result)
+                    }
                 }
             }
             .onFailure {
@@ -61,11 +63,4 @@ class BookmarkViewModel @Inject constructor(
     fun addPhotos(list: List<UnsplashPhotoModel>) {
         photos.addAll(list)
     }
-
-    fun clearPhotos() = viewModelScope.launch {
-        withContext(Dispatchers.IO) {
-            photos.clear()
-        }
-    }
-
 }

@@ -34,7 +34,6 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.project.swing.presentation.theme.Purple80
 import com.project.swing.presentation.theme.PurpleGrey40
-import com.project.swing.presentation.theme.PurpleGrey80
 import kotlinx.coroutines.delay
 
 @Composable

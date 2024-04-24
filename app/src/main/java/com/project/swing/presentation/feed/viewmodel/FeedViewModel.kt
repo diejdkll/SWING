@@ -54,7 +54,11 @@ class FeedViewModel @Inject constructor(
                     it.catch { remoteError ->
                         _searchPhotosUiState.value = SearchPhotosUiState.Error(remoteError)
                     }.collect { result ->
-                        _searchPhotosUiState.value = SearchPhotosUiState.Success(result)
+                        if (result.results.isEmpty()) {
+                            _searchPhotosUiState.value = SearchPhotosUiState.ResultEmpty
+                        } else {
+                            _searchPhotosUiState.value = SearchPhotosUiState.Success(result)
+                        }
                     }
                 }
                 .onFailure {

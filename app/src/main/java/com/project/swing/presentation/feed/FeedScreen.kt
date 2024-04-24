@@ -79,6 +79,10 @@ fun FeedScreen(
                 Toast.makeText(context, (searchPhotosUiState as SearchPhotosUiState.Error).exception.message.toString(), Toast.LENGTH_SHORT).show()
                 isLoading = false
             }
+            is SearchPhotosUiState.ResultEmpty -> {
+                Toast.makeText(context, "검색 결과가 없습니다", Toast.LENGTH_SHORT).show()
+                isLoading = false
+            }
             is SearchPhotosUiState.QueryEmpty -> isLoading = false
         }
     }
@@ -107,7 +111,7 @@ fun FeedScreen(
     ) {
         FeedSearchTextField(
             setText = searchText,
-            placeHolder = "학생 검색...",
+            placeHolder = "사진 검색...",
             onValueChange = {
                 searchText = it
             },

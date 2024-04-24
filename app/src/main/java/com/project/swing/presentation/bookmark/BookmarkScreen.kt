@@ -1,6 +1,5 @@
 package com.project.swing.presentation.bookmark
 
-import android.util.Log
 import android.widget.Toast
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
@@ -42,8 +41,6 @@ fun BookmarkScreen(
     var isLoading by remember { mutableStateOf(false) }
     var listIndex by remember { mutableIntStateOf(1) }
 
-    Log.d("testt", viewModel.photos.size.toString())
-
     val lastVisibleItem = remember {
         derivedStateOf {
             listState.layoutInfo.visibleItemsInfo.lastOrNull()?.index
@@ -71,13 +68,15 @@ fun BookmarkScreen(
             is GetLikePhotosUiState.Success -> {
                 val data = (getLikePhotosUiState as GetLikePhotosUiState.Success).data
 
-                Log.d("testt", "가져오기 성공")
-
                 viewModel.addPhotos(data)
                 isLoading = false
             }
             is GetLikePhotosUiState.Error -> {
                 Toast.makeText(context, (getLikePhotosUiState as GetLikePhotosUiState.Error).exception.message.toString(), Toast.LENGTH_SHORT).show()
+                isLoading = false
+            }
+            is GetLikePhotosUiState.ResultEmpty -> {
+                Toast.makeText(context, "결과가 없습니다", Toast.LENGTH_SHORT).show()
                 isLoading = false
             }
         }
@@ -86,13 +85,6 @@ fun BookmarkScreen(
     LaunchedEffect(unlikePhotoUiState) {
         if (unlikePhotoUiState is UnlikePhotoUiState.Success) {
             viewModel.photos.removeAt(listIndex)
-        }
-    }
-
-    DisposableEffect("Remove Photos") {
-        onDispose {
-            viewModel.clearPhotos()
-            Log.d("testt", "지우기 작동")
         }
     }
 
