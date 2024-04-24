@@ -21,27 +21,33 @@ class UrlActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
+        intentData()
+        observeAccessTokenState()
+
+        setContent { 
+            Box(modifier = Modifier.fillMaxSize())
+        }
+    }
+
+    private fun intentData() {
         val uri = intent.data
         if (uri != null) {
             val code = uri.getQueryParameter("code")
             if (code != null) {
                 viewModel.requestAccessToken(code)
+                return
             }
-        } else {
-            Toast.makeText(this, "로그인 실패", Toast.LENGTH_SHORT).show()
         }
+        Toast.makeText(this, "로그인 실패", Toast.LENGTH_SHORT).show()
+    }
 
+    private fun observeAccessTokenState() {
         lifecycleScope.launch {
-            viewModel.setAccessTokenUiState
-                .collect {
-                    if (it is SetAccessTokenUiState.Success) {
-                        finish()
-                    }
+            viewModel.setAccessTokenUiState.collect { uiState ->
+                if (uiState is SetAccessTokenUiState.Success) {
+                    finish()
                 }
-        }
-        
-        setContent { 
-            Box(modifier = Modifier.fillMaxSize())
+            }
         }
     }
 }
