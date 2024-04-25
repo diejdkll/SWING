@@ -16,7 +16,7 @@ class TokenInterceptor @Inject constructor(
         )
     }
 
-    lateinit var accessToken: String
+    private lateinit var accessToken: String
 
     override fun intercept(chain: Interceptor.Chain): Response {
         val request = chain.request()

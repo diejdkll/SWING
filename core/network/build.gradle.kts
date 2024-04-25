@@ -47,7 +47,6 @@ android {
 }
 
 dependencies {
-    implementation(project(":core:common"))
     implementation(project(":core:model"))
     implementation(project(":core:datastore"))
 

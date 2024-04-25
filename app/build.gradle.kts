@@ -85,7 +85,6 @@ protobuf {
 dependencies {
     implementation(project(":feature:feed"))
     implementation(project(":feature:bookmark"))
-    implementation(project(":core:common"))
     implementation(project(":core:domain"))
     implementation(project(":core:model"))
 
