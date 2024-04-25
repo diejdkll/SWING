@@ -1,5 +1,6 @@
 package com.project.swing.presentation
 
+import android.net.Uri
 import android.os.Bundle
 import android.widget.Toast
 import androidx.activity.ComponentActivity
@@ -21,7 +22,7 @@ class UrlActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
-        intentData()
+        intentData(intent.data)
         observeAccessTokenState()
 
         setContent { 
@@ -29,16 +30,16 @@ class UrlActivity : ComponentActivity() {
         }
     }
 
-    private fun intentData() {
-        val uri = intent.data
-        if (uri != null) {
-            val code = uri.getQueryParameter("code")
+    private fun intentData(uri: Uri?) {
+        uri?.let {
+            val code = it.getQueryParameter("code")
             if (code != null) {
                 viewModel.requestAccessToken(code)
                 return
+            } else {
+                Toast.makeText(this, "로그인 실패", Toast.LENGTH_SHORT).show()
             }
         }
-        Toast.makeText(this, "로그인 실패", Toast.LENGTH_SHORT).show()
     }
 
     private fun observeAccessTokenState() {
