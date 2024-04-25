@@ -33,9 +33,8 @@ class UrlActivity : ComponentActivity() {
     private fun intentData(uri: Uri?) {
         uri?.let {
             val code = it.getQueryParameter("code")
-            if (code != null) {
+            if (!code.isNullOrBlank()) {
                 viewModel.requestAccessToken(code)
-                return
             } else {
                 Toast.makeText(this, "로그인 실패", Toast.LENGTH_SHORT).show()
             }
