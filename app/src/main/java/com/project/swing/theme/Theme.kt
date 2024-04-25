@@ -1,4 +1,4 @@
-package com.project.swing.presentation.theme
+package com.project.swing.theme
 
 import android.app.Activity
 import android.os.Build

@@ -1,4 +1,4 @@
-package com.project.swing.presentation.navigation
+package com.project.swing.navigation
 
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.padding

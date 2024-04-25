@@ -1,4 +1,4 @@
-package com.project.swing.presentation
+package com.project.swing
 
 import android.content.Intent
 import android.net.Uri
@@ -7,7 +7,7 @@ import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.navigation.compose.rememberNavController
 import com.project.swing.BuildConfig
-import com.project.swing.presentation.navigation.SwingNavHost
+import com.project.swing.navigation.SwingNavHost
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint

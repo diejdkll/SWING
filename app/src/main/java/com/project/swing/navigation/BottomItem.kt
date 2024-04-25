@@ -1,4 +1,4 @@
-package com.project.swing.presentation.navigation
+package com.project.swing.navigation
 
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Favorite

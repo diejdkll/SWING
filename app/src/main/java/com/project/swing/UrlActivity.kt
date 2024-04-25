@@ -1,4 +1,4 @@
-package com.project.swing.presentation
+package com.project.swing
 
 import android.net.Uri
 import android.os.Bundle

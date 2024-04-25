@@ -1,4 +1,4 @@
-package com.project.swing.presentation
+package com.project.swing
 
 import android.app.Application
 import dagger.hilt.android.HiltAndroidApp
