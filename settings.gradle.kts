@@ -21,4 +21,12 @@ dependencyResolutionManagement {
 
 rootProject.name = "Swing"
 include(":app")
- 
+
+include(":core:model")
+include(":core:data")
+include(":core:domain")
+include(":core:network")
+include(":core:datastore")
+include(":core:common")
+include(":feature:feed")
+include(":feature:bookmark")

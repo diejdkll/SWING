@@ -83,6 +83,12 @@ protobuf {
 }
 
 dependencies {
+    implementation(project(":feature:feed"))
+    implementation(project(":feature:bookmark"))
+    implementation(project(":core:common"))
+    implementation(project(":core:domain"))
+    implementation(project(":core:model"))
+
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.lifecycle.runtime.ktx)
     implementation(libs.androidx.activity.compose)

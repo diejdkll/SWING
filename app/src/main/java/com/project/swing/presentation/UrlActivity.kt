@@ -9,8 +9,8 @@ import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.ui.Modifier
 import androidx.lifecycle.lifecycleScope
-import com.project.swing.presentation.feed.viewmodel.FeedViewModel
-import com.project.swing.presentation.feed.viewmodel.SetAccessTokenUiState
+import com.project.feed.viewmodel.FeedViewModel
+import com.project.feed.viewmodel.SetAccessTokenUiState
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.launch
 

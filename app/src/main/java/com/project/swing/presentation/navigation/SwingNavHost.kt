@@ -9,8 +9,8 @@ import androidx.compose.ui.unit.dp
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
-import com.project.swing.presentation.bookmark.BookmarkScreen
-import com.project.swing.presentation.feed.FeedScreen
+import com.project.bookmark.BookmarkScreen
+import com.project.feed.FeedScreen
 
 @Composable
 fun SwingNavHost(navController: NavHostController) {

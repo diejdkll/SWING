@@ -22,6 +22,8 @@ converter-moshi = "2.11.0"
 androidxDataStore = "1.0.0"
 protobuf = "3.24.0"
 protobufPlugin = "0.9.4"
+appcompat = "1.6.1"
+material = "1.11.0"
 
 [libraries]
 androidx-core-ktx = { group = "androidx.core", name = "core-ktx", version.ref = "coreKtx" }
@@ -49,11 +51,14 @@ coil-kt = { group = "io.coil-kt", name = "coil", version.ref = "coil" }
 coil-kt-compose = { group = "io.coil-kt", name = "coil-compose", version.ref = "coil" }
 okhttp3 = { group = "com.squareup.okhttp3", name = "okhttp", version.ref = "okhttp"}
 okhttp-logging = { group = "com.squareup.okhttp3", name = "logging-interceptor", version.ref = "okhttp" }
+moshi = { group = "com.squareup.moshi", name = "moshi", version.ref = "moshi" }
 retrofit-moshi-codegen = { group = "com.squareup.moshi", name = "moshi-kotlin-codegen", version.ref = "moshi" }
 retrofit-moshi-converter = { group = "com.squareup.retrofit2", name = "converter-moshi", version.ref = "converter-moshi" }
 androidx-dataStore-core = { group = "androidx.datastore", name = "datastore", version.ref = "androidxDataStore" }
 protobuf-kotlin-lite = { group = "com.google.protobuf", name = "protobuf-kotlin-lite", version.ref = "protobuf" }
 protobuf-protoc = { group = "com.google.protobuf", name = "protoc", version.ref = "protobuf" }
+androidx-appcompat = { group = "androidx.appcompat", name = "appcompat", version.ref = "appcompat" }
+material = { group = "com.google.android.material", name = "material", version.ref = "material" }
 
 [plugins]
 androidApplication = { id = "com.android.application", version.ref = "agp" }
@@ -62,3 +67,4 @@ hilt = { id = "com.google.dagger.hilt.android", version.ref = "hilt" }
 kotlin-serialization = { id = "org.jetbrains.kotlin.plugin.serialization", version.ref = "kotlin" }
 ksp = { id = "com.google.devtools.ksp", version.ref = "ksp" }
 protobuf = { id = "com.google.protobuf", version.ref = "protobufPlugin" }
+androidLibrary = { id = "com.android.library", version.ref = "agp" }

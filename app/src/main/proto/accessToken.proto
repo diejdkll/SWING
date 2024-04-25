@@ -1,8 +1,0 @@
-syntax = "proto3";
-
-option java_package = "com.project.swing";
-option java_multiple_files = true;
-
-message AccessToken {
-  string accessToken = 1;
-}
